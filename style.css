@@ -1,0 +1,61 @@
+* {
+    box-sizing: border-box;
+}
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+[class*="col-"] {
+    float: left;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+#weatherWidget{
+	border: 1px solid black;
+	padding: 10px 20px;
+	margin: 20px 10px 10px 15px;
+}
+
+input#weatherCity{
+	font-size: 22px; 
+	border: none;
+	margin-right:2px; 
+	text-align: right;
+	float: right;
+	width: 100%;
+}
+
+input[type="text"]:focus{
+	outline: none;
+}
+
+.weatherDay{
+	text-align: center; 
+	margin: 2% 0;
+	font-family: Helvetica, monospace;
+}
+.weatherDay p{
+	margin: 1px;
+}
+.row .weatherDay{
+	padding: 2px 0;
+	border-style: solid;
+	border-color:black;
+	border-right-width: 0.5px;
+	border-left-width: 0px;
+	border-top-width: 0.5px;
+	border-bottom-width: 0.5px;
+}
