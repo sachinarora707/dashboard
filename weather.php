@@ -3,7 +3,7 @@
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "http://api.openweathermap.org/data/2.5/forecast?q=chandigarh&cnt=5&units=metric&appid=80d3dbbe7e71bb7d30a1a75f399cb9c8",
+  CURLOPT_URL => "http://api.openweathermap.org/data/2.5/forecast?q=chandigarh&cnt=20&units=metric&appid=80d3dbbe7e71bb7d30a1a75f399cb9c8",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
@@ -50,7 +50,11 @@ if ($err) {
 }
  ?>
 
-<p style="float:left; width:50%; font-family: Helvetica, monospace; font-size:51px; margin: 0;">
+
+<p style="clear: both; text-align: center; margin: 0; font-family: Helvetica, monospace; font-size: small; font-weight: bold;">
+	<?php echo date("D d-M-y")?>
+</p>
+<p style="float:left; clear: both; width:50%; font-family: Helvetica, monospace; font-size:51px; margin: 0;">
 	<span style="font-size: 50px;"><?php echo round($currWeather->main->temp); ?></span><sup style="font-size: x-large">&#8451</sup>
 	<span style="font-size: 20px">Overcast</span>
 </p>
@@ -60,14 +64,14 @@ if ($err) {
 <div style="clear: both; border: 0.3px solid"></div>
 <div class="row">
 	<?php 
-		for($x=0; $x<4; $x++){
+		for($x=1; $x<11; $x+=3){
 				$forecastTime = new DateTime($weather[$x]->dt_txt);
 				$forecastTime->setTimezone(new DateTimeZone("Asia/Kolkata"));
 				//echo $forecastTime->format("Y-m-d H:i:s");
 
 			echo '<div class="col-3 weatherDay">
 			<p style="font-size: larger;">' . $forecastTime->format("D") . '</p>
-			<p style="font-size: x-small;">' . $forecastTime->format("H:i") . '</p>
+			<p style="font-size: x-small;">' . $forecastTime->format("h:i a") . '</p>
 			<img src="http://openweathermap.org/img/w/' . $weather[$x]->weather[0]->icon .'.png" style="width: 50px; height: 50px;"/>
 			<p style="font-size: x-small;">' . $weather[$x]->weather[0]->main .'</p>
 			<p style="font-size: larger;">' . $weather[$x]->main->temp . '&#8451</p>
