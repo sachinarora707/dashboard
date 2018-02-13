@@ -17,16 +17,20 @@
 [class*="col-"] {
     float: left;
 }
-
+.row{
+	padding: 4px;
+}
 .row::after {
     content: "";
     clear: both;
     display: table;
 }
+
+/*Weather CSS*/
 #weatherWidget{
 	border: 1px solid black;
 	padding: 10px 20px;
-	margin: 20px 10px 10px 15px;
+	margin: 10px 10px 10px 15px;
 }
 
 input#weatherCity{
@@ -46,16 +50,81 @@ input[type="text"]:focus{
 	text-align: center; 
 	margin: 2% 0;
 	font-family: Helvetica, monospace;
+	width: 25%;
 }
 .weatherDay p{
 	margin: 1px;
 }
-.row .weatherDay{
-	padding: 2px 0;
-	border-style: solid;
-	border-color:black;
-	border-right-width: 0.5px;
-	border-left-width: 0px;
-	border-top-width: 0.5px;
-	border-bottom-width: 0.5px;
+table td.weatherDay{
+	padding: 5px 0;
+	border: 0.5px solid black;
+}
+
+/*Alexa CSS*/
+
+#alexaWidget{
+	border: 1px solid black;
+    padding: 10px;
+    margin: 10px 10px 10px 0px;
+}
+#alexaWidget2{
+	border: 1px solid black;
+    padding: 10px;
+    margin: 10px 10px 10px 0px;
+}
+p.alexaSite{
+	text-align: center;
+	font-family: Helvetica, monospace;
+	font-size: 1.47em;
+	margin: 4px 0px;
+}
+span.increaseRank{
+	display: inline;
+    background-color: #2bbb0f;
+    padding: 4px 8px;
+    color: white;
+    font-size: small;
+    margin: 0 5px;
+    vertical-align: top;
+}
+
+/*Cryptocurrencies CSS*/
+.cryptoWidget{
+    border: 1px solid black;
+    padding: 10px 20px;
+    margin: 0px 5px 10px 0px;
+}
+
+div.coinmarketcap-currency-widget > div{
+	border:none !important;
+}
+
+/*Notepad CSS*/
+#notepad{
+    padding: 10px 20px;
+    margin: 0px 5px 10px 0px;
+}
+
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 100%;
+    }
+    #weatherWidget{
+    	margin: 0px;
+    }
+    #temp{
+    	font-size: 34px !important;	
+    }
+
+    #weatherWidget p sup{
+    	font-size: medium !important;
+    }
+
+    #weatherWidget p span:nth-child(3){
+    	font-size: 15px !important;
+    }
+
+
 }
